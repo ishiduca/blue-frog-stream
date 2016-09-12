@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "blue-frog-core": "^0.1.0",
+    "blue-frog-stream": "file:..",
+    "body": "^5.1.0",
+    "ecstatic": "^2.1.0",
+    "through2": "^2.0.1",
+    "uuid": "^2.0.2",
+    "xtend": "^4.0.1"
+  },
+  "scripts": {
+    "app": "node app",
+    "build": "browserify src/main.js > static/js/bundle.js"
+  }
+}

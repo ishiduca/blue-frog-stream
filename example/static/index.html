@@ -1,0 +1,42 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8" />
+    <title>blue-frog-stream::demo</title>
+</head>
+<body>
+    <h1>Blue-Frog-Stream::Demo</h1>
+    <form id="createAccount">
+        <h2>create account</h2>
+        <dl>
+            <dt>name</dt>
+            <dd><input
+                    type="text"
+                    name="account_name"
+                    placeholder="your account name"
+                    pattern="[0-9a-zA-Z\-.]{1,12}"
+                    required
+                    autofocus
+            /></dd>
+            <dt>password</dt>
+            <dd><input
+                    type="password"
+                    name="account_password"
+                    placeholder="your account password"
+                    pattern="[0-9a-zA-Z\-.]{6,}"
+                    required
+            /></dd>
+            <dt>nick name (optional)</dt>
+            <dd><input
+                    type="text"
+                    name="account_nickname"
+                    placeholder="your account nick name"
+                    pattern="[0-9a-zA-Z\-.]{4,6}"
+            /></dd>
+            <dd>
+                <button type="submit">register</button>
+            </dd>
+        </dl>
+    </form>
+
+    <script src="/js/bundle.js"></script>
+</body>
