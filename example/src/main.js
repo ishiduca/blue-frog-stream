@@ -8,6 +8,9 @@ var body       = require('body/json')
 document.querySelector('#createAccount').onsubmit = function (ev) {
     ev.preventDefault()
 
+    var meap = new Meap
+
+
     var hyp   = hyperquest.post(location.origin)
     var batch = new rpc.request.BatchStream('do JSON.stringify')
 
@@ -23,8 +26,7 @@ document.querySelector('#createAccount').onsubmit = function (ev) {
             if (err) return onError(err)
             new rpc.response.ParseStream(result).on('error', onError)
             .pipe(through.obj(function (d, _, done) {
-                console.log(d)
-                done()
+                meap.value(d, done)
             }))
         })
     })
@@ -48,6 +50,15 @@ document.querySelector('#createAccount').onsubmit = function (ev) {
     }
     var req3 = request('end', 'getAccount')
 
+    meap.wrap(req1, function (data,done) {
+        console.log(data)
+        setTimeout(done, 1500)
+    })
+    meap.wrap(req3, function (data, done) {
+        console.log(data)
+        done()
+    })
+
     batch.write(req1)
     req2 && (batch.write(req2))
     batch.end(req3)
@@ -55,4 +66,21 @@ document.querySelector('#createAccount').onsubmit = function (ev) {
 
 function onError (err) {
     console.log(err)
+}
+
+function Meap () {
+    this.map_ = {}
+}
+
+Meap.prototype.wrap = function (req, onSuccess) {
+    if (('id' in req) && req.id !== null) {
+        this.map_[req.id] = onSuccess
+        return true
+    }
+    return false
+}
+
+Meap.prototype.value = function (data, done) {
+    if (! this.map_[data.id]) return done()
+    this.map_[data.id](data.result, done)
 }
