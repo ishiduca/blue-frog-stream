@@ -26,7 +26,7 @@ test('var transformStream = new BatchStream(true)', t => {
     }, done => {
         t.is(errs.length, 2, 'errs.length eq 2')
         t.ok(/TypeError.*?JSON-RPC 2\.0 request must be "object"/.test(String(errs[0])), String(errs[0]))
-        t.ok(/Error.*?this method name "xmethod" is not allowed/.test(String(errs[1])), String(errs[1]))
+        t.ok(/Error.*?this method name "rpc_method" is not allowed/.test(String(errs[1])), String(errs[1]))
         t.is(spy.length, 1, 'spy.length eq 1')
         t.is(spy[0].length, 3, 'spy[0].length eq 3')
         t.deepEqual(spy[0][0], {jsonrpc: "2.0", id: 123, method: 'createAccount', params: {name: 'benjamine', pass: 'harper'}}, 'spy[0][0] deepEqual {jsonrpc: "2.0", id: 123, method: "createAccount", params: {name: "benjamine", pass: "harper"}}')
@@ -39,7 +39,7 @@ test('var transformStream = new BatchStream(true)', t => {
     batch.write(req1)
     batch.write('invalid value')
     batch.write(req2)
-    batch.write({jsonrpc: "2.0", xmethod: "notAllowMethod"})
+    batch.write({jsonrpc: "2.0", rpc_method: "notAllowMethod"})
     batch.write(req3)
     batch.end()
 })

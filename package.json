@@ -1,6 +1,6 @@
 {
   "name": "blue-frog-stream",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "parse and reduce the batch processing of JSON-RPC2.0 request/response",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/ishiduca/blue-frog-stream#readme",
   "dependencies": {
-    "blue-frog-core": "^0.1.0",
+    "blue-frog-core": "^0.2.0",
     "inherits": "^2.0.3",
     "json-stringify-safe": "^5.0.1",
     "readable-stream": "^2.1.5"

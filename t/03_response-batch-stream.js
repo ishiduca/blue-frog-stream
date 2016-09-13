@@ -22,7 +22,7 @@ test('const batch = new BatchStream(doJSONstringify)', t => {
         }, done => {
             t.is(errs.length, 2, 'errs.length eq 2')
             t.ok(/TypeError.*JSON-RPC 2\.0 response must be "object"/.test(String(errs[0])), String(errs[0]))
-            t.ok(/Error.*?this method name "foo" is not allowed/.test(String(errs[1])), String(errs[1]))
+            t.ok(/Error.*?this method name "rpc_foo" is not allowed/.test(String(errs[1])), String(errs[1]))
             t.is(spy.length,  1, 'spy.length eq 1')
             t.is(spy[0].length,  3, 'spy[0].length  eq 3')
             t.deepEqual(spy[0][0], {jsonrpc: "2.0", id: 1, result: 6}, 'spy[0][0] deepEqual {jsonrpc: "2.0", id: 1, result: 6}')
@@ -38,6 +38,6 @@ test('const batch = new BatchStream(doJSONstringify)', t => {
     batch.write(res1)
     batch.write("invalid data")
     batch.write(res2)
-    batch.write({foo: 123})
+    batch.write({rpc_foo: 123})
     batch.end(res3)
 })
