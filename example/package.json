@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "blue-frog-core": "^0.1.0",
-    "blue-frog-stream": "file:..",
+    "blue-frog-core": "^0.2.0",
+    "blue-frog-stream": "^0.2.0",
     "body": "^5.1.0",
     "ecstatic": "^2.1.0",
     "through2": "^2.0.1",
