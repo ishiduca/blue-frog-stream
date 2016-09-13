@@ -38,6 +38,7 @@ function handler (err, result) {
                 else done(null, response(req.id, result))
             }))
         }))
+        .pipe(batch)
     }
 
     return batch

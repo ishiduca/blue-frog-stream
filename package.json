@@ -1,6 +1,6 @@
 {
   "name": "blue-frog-stream",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "parse and reduce the batch processing of JSON-RPC2.0 request/response",
   "main": "index.js",
   "scripts": {
