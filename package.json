@@ -1,7 +1,7 @@
 {
   "name": "blue-frog-stream",
-  "version": "0.0.1",
-  "description": "I/O stream for blue-frog (JSON-RPC 2.0 library)",
+  "version": "0.1.0",
+  "description": "parse and reduce the batch processing of JSON-RPC2.0 request/response",
   "main": "index.js",
   "scripts": {
     "test": "tape t/*.js"
@@ -11,6 +11,7 @@
     "url": "git+https://github.com/ishiduca/blue-frog-stream.git"
   },
   "keywords": [
+    "batch",
     "jsonrpc",
     "json-rpc",
     "jsonrpc2",
